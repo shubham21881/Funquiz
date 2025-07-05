@@ -1,5 +1,14 @@
 
+    const container = document.querySelector('#display1') // your display div
+          container.style.display='none'
+ const startbtn=document.querySelector('#start')
+ const quizbox=document.querySelector('.quiz-box')
+ startbtn.addEventListener('click',(e)=>{
+   quizbox.style.display='none'
+          container.style.display='block'
 
+ })
+   
    
     const formdata=document.querySelector('form')
           formdata.addEventListener('submit',extractingdata )
@@ -87,6 +96,10 @@ function render(arr){
         const ol = document.createElement('ol')
         item.Option.forEach((opt) => {
             const optli = document.createElement('li')
+            const btn= document.createElement('input')
+            btn.type='radio'
+            btn.name="Radio"
+            btn.append(optli)
             optli.textContent = opt
              
               ol.addEventListener('click',(e)=>{

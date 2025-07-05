@@ -9,11 +9,16 @@
              
         //    extracting data from field and store in local storage;
           function extractingdata(e){
+
             e.preventDefault()
             let dataobject={
               question:"",
-              Option:[]
+              Option:[],
+              correctanswer:''
              };
+
+                 let radiobtn=document.querySelectorAll('.radio')
+                 
                  const inputvalue=document.querySelectorAll('.inputvalue')
                  for(let i=0;i<=inputvalue.length-1;i++){
 
@@ -25,6 +30,18 @@
                       }
 
                  }
+
+                   for(let i=0;i<radiobtn.length;i++){
+                    if(radiobtn[i].checked){
+                           dataobject.correctanswer=inputvalue[i+1].value.trim()
+                           break
+                    } 
+
+
+                   }
+
+
+
                     array.push(dataobject)
                     localStorage.setItem('array', JSON.stringify(array));
                     render(array)
@@ -58,7 +75,7 @@
 
 
 function render(arr){
-    const container = document.querySelector('#display') // your display div
+    const container = document.querySelector('#display1') // your display div
     container.innerHTML = ""  // Clear previous content
 
     const ul = document.createElement('ul')
@@ -71,6 +88,19 @@ function render(arr){
         item.Option.forEach((opt) => {
             const optli = document.createElement('li')
             optli.textContent = opt
+             
+              ol.addEventListener('click',(e)=>{
+                if(opt===item.correctanswer){
+                optli.style.color="green"
+                optli.style.fontWeight='bold'
+            }else{
+                optli.style.color="red"
+            }
+              })
+
+            
+
+
             ol.appendChild(optli)
         })
 
@@ -84,15 +114,7 @@ function render(arr){
 render(array)
 
 
-let radiobtn=document.querySelectorAll('.radio')
-radiobtn.forEach((btn)=>{
-    btn.addEventListener('click',(e)=>{
-        console.log(e.target.value="true");
-        
-    })
-    
-})
-console.log(radiobtn);
+
 
 
 

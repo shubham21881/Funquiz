@@ -1,4 +1,19 @@
+  // Initialize Lenis
+// const lenis = new Lenis({
+//   autoRaf: true,
+// });
 
+// Listen for the scroll event and log the event data
+// lenis.on('scroll', (e) => {
+//   console.log(e);
+// });
+  
+  
+  
+  
+  
+  
+  
     const container = document.querySelector('#display1') // your display div
           container.style.display='none'
  const startbtn=document.querySelector('#start')
@@ -84,6 +99,7 @@
 
 
 function render(arr){
+  
     const container = document.querySelector('#display1') // your display div
     container.innerHTML = ""  // Clear previous content
 
@@ -96,18 +112,18 @@ function render(arr){
         const ol = document.createElement('ol')
         item.Option.forEach((opt) => {
             const optli = document.createElement('li')
-            const btn= document.createElement('input')
-            btn.type='radio'
-            btn.name="Radio"
-            btn.append(optli)
+            
             optli.textContent = opt
              
               ol.addEventListener('click',(e)=>{
+                
                 if(opt===item.correctanswer){
-                optli.style.color="green"
+                  optli.style.backgroundColor="#c7f9cc"
+                  optli.style.fontWeight='bold'
+                    
+                }else{
+                optli.style.color="#ffccd5"
                 optli.style.fontWeight='bold'
-            }else{
-                optli.style.color="red"
             }
               })
 
@@ -122,13 +138,28 @@ function render(arr){
     })
 
     container.appendChild(ul)
+  const completed=document.createElement('button')
+     completed.textContent='completed';
+     container.append(completed)
+    
+     
 }
 
-render(array)
+    render(array)
+
+// console.log(array);
 
 
-
-
+ const countdata=document.querySelectorAll('ol li')
+  countdata.forEach((li)=>{
+    li.addEventListener('click',(e)=>{
+      // if(e.target.textContent===)
+      console.log("shubham");
+      
+    })
+  })
+ 
+   
 
 
 

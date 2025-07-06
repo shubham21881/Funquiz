@@ -24,19 +24,22 @@ body,html{
 #display1 ol li{
     display: flex;
     justify-content: start;
+    background-color: whitesmoke;
     cursor: pointer;
     gap:10px;
-    border: 0.5px solid grey;
+    border: 2px solid   transparent;
     list-style: none;
     border-radius: 10px;
     padding: 10px;
+    width: 500px;
+     transition: all 0.2s ease;
     
 }
 #display1 ul{
     list-style: none;   /* Removes bullet points */
       padding: 0;         /* Optional: removes left padding */
       margin: 0;
-      width: 80%;
+      width: 800px;
        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
       /* width: 80vw; */
 }
@@ -45,6 +48,7 @@ body,html{
     margin: 20px;
     /* border: 0.5px solid gray; */
     border-radius: 10px;
+    padding: 20px;
      
 
 }
@@ -52,4 +56,14 @@ body,html{
 .quiz-box{
      /* background-color: royalblue; */
       transition: transform 0.1s;
+}
+
+#display1 ol li:hover{
+    border: 2px solid black;
+}
+ol{
+    margin: 10px;
+    gap: 10px;
+    height: 400px;
+    padding: 10px;
 }

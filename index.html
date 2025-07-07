@@ -11,26 +11,27 @@
 </head>
 <body>
     <div class="container">
+        <header>
+            <span><h4>Quiz builder</h4></span>
+            <h1>Create your Custom Quiz</h1>
+            <p>Build engaging quizzes with multiple choice Question.<br> Add your questions and options to get started </p>
+        </header>
        <!-- quiz box -->
     <div class="quiz-box">
-        
+          <div><h1><span>+</span>Add New Question</h1></div>
+          
         <form action="" >
- 
            <label for="question">  Question <input required id="question"class="inputvalue" type="text" placeholder="write question"></label><br>
            <label for="option1">  <input required type="radio" id="1" value="false" class="radio" name="option">  option1  <input required id="option1"class="inputvalue" type="text"></label><br>
            <label for="option2">  <input required type="radio" id='2'value="false" class="radio" name="option">  option2  <input required id="option2"class="inputvalue" type="text"></label><br>
            <label for="option3">  <input required type="radio" id="3" value="false" class="radio" name="option">  option3  <input required id="option3"class="inputvalue" type="text"></label><br>
            <label for="option4">  <input required type="radio" id="4" value="false" class="radio" name="option">  option4  <input required id="option4"class="inputvalue" type="text"></label><br>
-           <input type="submit">
+           <input id="submit" type="submit">
         </form>
-        <button id="start">start quizz</button>
+        <button id="start" class="submitbtn">start quizz</button>
 
     </div>
-             <div id="display1">
-                
-
-                
-             </div>
+            
    
 
 
@@ -47,13 +48,17 @@
         
     </div>
 
+ <div id="display1">
+                
+
+                
+             </div>
 
 
 
 
 
-
-    <!-- <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script>  -->
+    <script src="https://unpkg.com/lenis@1.3.4/dist/lenis.min.js"></script> 
     <script src="./script.js"></script>
 </body>
 </html>

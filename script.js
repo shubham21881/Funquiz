@@ -98,70 +98,140 @@
 
 
 
-function render(arr){
+// function render(arr){
   
-    const container = document.querySelector('#display1') // your display div
-    container.innerHTML = ""  // Clear previous content
+//     const container = document.querySelector('#display1') // your display div
+//     container.innerHTML = ""  // Clear previous content
 
-    const ul = document.createElement('ul')
+//     const ul = document.createElement('ul')
 
-    arr.forEach((item) => {
-        const li = document.createElement('li')
-        li.innerHTML = `<h3>Question: ${item.question}</h3>`
+//     arr.forEach((item) => {
+//         const li = document.createElement('li')
+//         li.innerHTML = `<h3>Question: ${item.question}</h3>`
 
-        const ol = document.createElement('ol')
-        item.Option.forEach((opt) => {
-            const optli = document.createElement('li')
+//         const ol = document.createElement('ol')
+//         item.Option.forEach((opt) => {
+//             const optli = document.createElement('li')
             
-            optli.textContent = opt
+//             optli.textContent = opt
              
-              ol.addEventListener('click',(e)=>{
+//               ol.addEventListener('click',(e)=>{
                 
-                if(opt===item.correctanswer){
-                  optli.style.backgroundColor="#c7f9cc"
-                  optli.style.fontWeight='bold'
+//                 if(opt===item.correctanswer){
+//                   optli.style.backgroundColor="#c7f9cc"
+//                   optli.style.fontWeight='bold'
                     
-                }else{
-                optli.style.color="#ffccd5"
-                optli.style.fontWeight='bold'
-            }
-              })
+//                 }else{
+//                 optli.style.color="#ffccd5"
+//                 optli.style.fontWeight='bold'
+//             }
+//               })
 
             
 
 
-            ol.appendChild(optli)
-        })
+//             ol.appendChild(optli)
+//         })
 
-        li.appendChild(ol)
-        ul.appendChild(li)
-    })
+//         li.appendChild(ol)
+//         ul.appendChild(li)
+//     })
 
-    container.appendChild(ul)
-  const completed=document.createElement('button')
-     completed.textContent='completed';
-     container.append(completed)
+//     container.appendChild(ul)
+//   const completed=document.createElement('button')
+//      completed.textContent='completed';
+//      container.append(completed)
     
      
+// }
+
+let count=0
+
+function render(arr){
+
+    const container = document.querySelector('#display1');
+    container.innerHTML = "";
+    const ul = document.createElement('ul');
+
+    arr.forEach((item, questionIndex) => {
+        const li = document.createElement('li');
+        li.innerHTML = `<h3>Question: ${item.question}</h3>`;
+        const ol = document.createElement('ol');
+
+        item.Option.forEach((opt) => {
+            const optli = document.createElement('li');
+            optli.textContent = opt;
+            optli.style.cursor = 'pointer';
+
+            optli.addEventListener('click', (e) => {
+                const alreadySelected = ol.dataset.answered;
+                if (alreadySelected) return; // prevent double counting
+
+                ol.dataset.answered = "true"; // mark this question as answered
+
+                if (opt === item.correctanswer) {
+                    optli.style.backgroundColor = "#c7f9cc";
+                    optli.style.fontWeight = 'bold';
+                    count++;
+                    console.log("Correct! Count =", count);
+                } else {
+                    optli.style.color = "#ffccd5";
+                    optli.style.fontWeight = 'bold';
+                }
+            });
+
+            ol.appendChild(optli);
+        });
+
+        li.appendChild(ol);
+        ul.appendChild(li);
+    });
+
+    container.appendChild(ul);
+
+    const completed = document.createElement('button');
+    completed.textContent = 'Completed';
+    completed.addEventListener('click', () => {
+        alert(`Your score is: ${count} out of ${array.length}`);
+    });
+    container.append(completed);
 }
+
+
+
+
+
+
 
     render(array)
 
 // console.log(array);
 
 
- const countdata=document.querySelectorAll('ol li')
-  countdata.forEach((li)=>{
-    li.addEventListener('click',(e)=>{
-      // if(e.target.textContent===)
-      console.log("shubham");
-      
-    })
-  })
  
-   
+  // let answerarray=[]
+  //  for(let i=0;i<array.length;i++){
+  //    answerarray.push(array[i].correctanswer);
+
+  //  }
+  // //  console.log(answerarray);
+
+  //  let count=0
+  //  const countdata=document.querySelectorAll('ol li')
+  // countdata.forEach((li)=>{
+  //   li.addEventListener('click',(e)=>{
+  //       answerarray.forEach((item,index,array)=>{
+  //         if(item===e.target.textContent){
+  //            count++
+  //            console.log("Correct clicked. Current count:", count);
+  //         }
+  //       })
+      
+  //   })
+  // })
 
 
+// console.log(count);
 
 
 

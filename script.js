@@ -155,7 +155,7 @@ function render(arr){
 
     arr.forEach((item, questionIndex) => {
         const li = document.createElement('li');
-        li.innerHTML = `<h3>Question: ${item.question}</h3>`;
+        li.innerHTML = `<h3> ${item.question}</h3>`;
         const ol = document.createElement('ol');
 
         item.Option.forEach((opt) => {
@@ -165,9 +165,9 @@ function render(arr){
 
             optli.addEventListener('click', (e) => {
                 const alreadySelected = ol.dataset.answered;
-                if (alreadySelected) return; // prevent double counting
+                if (alreadySelected) return; 
 
-                ol.dataset.answered = "true"; // mark this question as answered
+                ol.dataset.answered = "true"; 
 
                 if (opt === item.correctanswer) {
                     optli.style.backgroundColor = "#c7f9cc";
@@ -191,6 +191,8 @@ function render(arr){
 
     const completed = document.createElement('button');
     completed.textContent = 'Completed';
+    completed.style.cssText="height:25px;width:100px;margin:20px"
+    // completed.style.position="fixed"
     completed.addEventListener('click', () => {
         alert(`Your score is: ${count} out of ${array.length}`);
     });

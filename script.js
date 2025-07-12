@@ -19,8 +19,8 @@
  const startbtn=document.querySelector('#start')
  const quizbox=document.querySelector('.quiz-box')
  startbtn.addEventListener('click',(e)=>{
-   quizbox.style.display='none'
-          container.style.display='block'
+   quizbox.style.transform="scale(0)"
+          container.style.transform="scale(1)"
 
  })
    
@@ -68,6 +68,8 @@
 
                     array.push(dataobject)
                     localStorage.setItem('array', JSON.stringify(array));
+                    const circle= document.querySelector('.circle')
+              circle.textContent=`${array.length}`
                     render(array)
                     inputvalue.forEach(input => input.value = '');
                      
@@ -191,10 +193,17 @@ function render(arr){
 
     const completed = document.createElement('button');
     completed.textContent = 'Completed';
-    completed.style.cssText="height:25px;width:100px;margin:20px"
+    completed.style.cssText="height:25px;width:100px;margin:20px;background-color:#5d4aea;color:white;border-radius:10px"
     // completed.style.position="fixed"
     completed.addEventListener('click', () => {
         alert(`Your score is: ${count} out of ${array.length}`);
+        const container = document.querySelector('#display1');
+        const quizbox=document.querySelector('.quiz-box')
+        if( container.style.transform==="scale(0)" && quizbox.style.transform==="scale(1)"){
+         container.style.transform="scale(0)"
+         quizbox.style.transform="scale(1)"
+        }
+         
     });
     container.append(completed);
 }
@@ -239,7 +248,7 @@ function render(arr){
 
 
 
-
+   
 
 
 
@@ -250,7 +259,9 @@ function render(arr){
             
     //   
    
-            
+       
+      const circle= document.querySelector('.circle')
+              circle.textContent=`${array.length}`               
 
 
                 

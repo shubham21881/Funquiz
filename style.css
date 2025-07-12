@@ -29,7 +29,8 @@ body,html{
     /* overflow: auto; */
     flex-shrink: 1;
     padding: 5vw 2vw;
-    
+    transform:scale(0);
+    transition: 5s;
 
 }
 #display1 ol li{
